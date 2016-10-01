@@ -1,7 +1,7 @@
 package hmgo
 
 import (
-	"os"
+// "os"
 )
 
 const (
@@ -31,5 +31,15 @@ func Run(params ...string) {
 
 //运行http服务前加载hook
 func loadBeforeHttpRun() {
-	addHook()
+	addHook(loadMine)
+	addHook(loadHttpErrorHandler)
+	addHook(loadSession)
+	addHook(loadTemplate)
+	addHook(loadAdmin)
+	addHook(loadGzip)
+	for _, hk := range hooks {
+		if err := hk(); err != nil {
+			panic(err)
+		}
+	}
 }
