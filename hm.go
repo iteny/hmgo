@@ -1,7 +1,9 @@
 package hmgo
 
 import (
-// "os"
+	// "os"
+	"strconv"
+	"strings"
 )
 
 const (
@@ -27,16 +29,26 @@ func addHook(hf hookFunc) {
  */
 func Run(params ...string) {
 	loadBeforeHttpRun()
+	if len(params) > 0 && params[0] != "" {
+		strs := strings.Split(params[0], ":")
+		if len(strs) > 0 && strs[0] != "" {
+			HmConfig.Listen.HttpAddr = strs[0]
+		}
+		if len(strs) > 1 && strs[1] != "" {
+			HmConfig.Listen.HttpPort, _ = strconv.Atoi(strs[1])
+		}
+	}
+	HmApp.Run()
 }
 
 //运行http服务前加载hook
 func loadBeforeHttpRun() {
 	addHook(loadMine)
 	addHook(loadHttpErrorHandler)
-	addHook(loadSession)
-	addHook(loadTemplate)
-	addHook(loadAdmin)
-	addHook(loadGzip)
+	// addHook(loadSession)
+	// addHook(loadTemplate)
+	// addHook(loadAdmin)
+	// addHook(loadGzip)
 	for _, hk := range hooks {
 		if err := hk(); err != nil {
 			panic(err)

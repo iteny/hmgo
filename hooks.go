@@ -27,4 +27,10 @@ func loadHttpErrorHandler() error {
 		"503": unauthorized,
 		"504": unauthorized,
 	}
+	for k, v := range m {
+		if _, ok := ErrorMaps[k]; !ok {
+			ErrorHandler(k, v)
+		}
+	}
+	return nil
 }
