@@ -1,7 +1,6 @@
 package hmgo
 
 import (
-	// "os"
 	"strconv"
 	"strings"
 )
@@ -19,6 +18,7 @@ type hookFunc func() error
 //添加hook
 func addHook(hf hookFunc) {
 	hooks = append(hooks, hf)
+
 }
 
 /**
