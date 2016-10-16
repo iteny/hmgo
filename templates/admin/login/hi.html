@@ -20,16 +20,18 @@
     <style type="text/css">
     .tip-darkgray{z-index: 99999;}
     </style>
-    <block name="css"></block>
+    <!-- <block name="css"></block> -->
     <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body onkeydown="keyLogin();">
+<div id="baby">
+
 <div id="container">
     <div id="login-logo">
-        <h1 class="login-logo-image">{{Name}}</h1>   
+        <h1 class="login-logo-image"><favlist></favlist></h1>   
            
 </form>
     </div>
@@ -47,14 +49,16 @@
         <button type="submit" class="button glossy full-width huge" id="loginsubmit">登录</button>
     </form>
 </div>
+</div>
 </body>
 <script>
  var verifycode = "{:U('Login/verify')}";
  var link = "{:U('Login/index')}";
  var redirect= "{:U('Index/index')}";
 </script>
-<script src="static/common/js/vue/vue.js"></script>
-<script src="static/common/js/vue/vue-resource.min.js"></script>
+<script src="static/common/js/dist/hm.js"></script>
+<!-- <script src="static/common/js/vue/vue.js"></script>
+<script src="static/common/js/vue/vue-resource.min.js"></script> -->
 <script src="/public/common/js/jquery/jquery-1.12.3.min.js"></script>
 <script src="/public/common/js/layer/layer.js"></script>
 <script src="/public/admin/js/admin.common.js"></script>
