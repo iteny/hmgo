@@ -15,8 +15,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="apple-touch-icon" type="image/x-icon" href="__ROOT__/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="__ROOT__/logo.png">
-    <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css">
+ <!--    <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css">
+    <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css"> -->
     <style type="text/css">
     .tip-darkgray{z-index: 99999;}
     </style>
@@ -28,7 +28,11 @@
 </head>
 <body onkeydown="keyLogin();">
 <div id="baby">
-
+<p><{count}></p>
+  <p>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </p>
 <div id="container">
     <div id="login-logo">
         <h1 class="login-logo-image"><favlist></favlist></h1>   
@@ -42,7 +46,7 @@
             <li id="userli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe600;</i><input type="text" name="username" id="username" value="" class="input-unstyled" placeholder="用户名" autocomplete="off" disabled></li>
             <li id="passli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe601;</i><input type="password" name="password" id="password" value="" class="input-unstyled" placeholder="密码" autocomplete="off" disabled></li>
             <li id="verifyli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe602;</i><input style="width:120px" type="text" name="verify" id="verify" value="" class="input-unstyled" placeholder="验证码" autocomplete="off">
-                <div class="yanzhengma_box" id="verifyshow"><img class="yanzheng_img" id="code_img" src="__ROOT__{:U('Login/verify')}"  width="130" height="58" onclick="refreshs()"></div>
+                <div class="yanzhengma_box" id="verifyshow"><img class="yanzheng_img" id="code_img" src=""  width="130" height="58" onclick="refreshs()"></div>
             </li>
         </ul>
 
@@ -59,10 +63,10 @@
 <script src="static/common/js/dist/hm.js"></script>
 <!-- <script src="static/common/js/vue/vue.js"></script>
 <script src="static/common/js/vue/vue-resource.min.js"></script> -->
-<script src="/public/common/js/jquery/jquery-1.12.3.min.js"></script>
+<!-- <script src="/public/common/js/jquery/jquery-1.12.3.min.js"></script>
 <script src="/public/common/js/layer/layer.js"></script>
 <script src="/public/admin/js/admin.common.js"></script>
-<script src="/public/admin/js/login.js"></script>
+<script src="/public/admin/js/login.js"></script> -->
 <style>
     .layui-layer-tips .layui-layer-content{
         font-family: "Microsoft YaHei",SimSun,'\5b8b\4f53',sans-serif;

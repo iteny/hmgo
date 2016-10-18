@@ -22,3 +22,4 @@ _testmain.go
 *.exe
 *.test
 *.prof
+static/common/js/vue/node_modules/
