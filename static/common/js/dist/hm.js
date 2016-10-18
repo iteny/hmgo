@@ -8175,7 +8175,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "F:\\golib\\src\\hmgo\\static\\common\\js\\vue\\components\\Favlist.vue"
+	__vue_options__.__file = "f:\\golib\\src\\hmgo\\static\\common\\js\\vue\\components\\Favlist.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -8186,9 +8186,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-4abfd08b", __vue_options__)
+	    hotAPI.createRecord("data-v-cd183eaa", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-4abfd08b", __vue_options__)
+	    hotAPI.reload("data-v-cd183eaa", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Favlist.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -8212,8 +8212,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-4abfd08b!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Favlist.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-4abfd08b!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Favlist.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-cd183eaa!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Favlist.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-cd183eaa!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Favlist.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8552,7 +8552,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-4abfd08b", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-cd183eaa", module.exports)
 	  }
 	}
 
