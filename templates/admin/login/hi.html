@@ -26,13 +26,29 @@
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body onkeydown="keyLogin();">
+<body>
 <div id="baby">
 <p><{count}></p>
   <p>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
   </p>
+<div>
+	<div v-for="(item,index) in items">
+		<div :class="{'class-a':isA,'class-b':isB}">
+			<span style="background: yellow;width:80px;display: inline-block">
+			<{item.name}>
+			</span>
+				<input type="text" v-model="item.value" lazy number><{item.value}>
+
+		</div>
+	</div>
+	计算后结果：<{total}>
+</div>
+<div>
+	<button @click="isA = !isA">isA=<{isA}></button>
+	<button @click="isB = !isB">isA=<{isB}></button>
+</div>
 <div id="container">
     <div id="login-logo">
         <h1 class="login-logo-image"><favlist></favlist></h1>   

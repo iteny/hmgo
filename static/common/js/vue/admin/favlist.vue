@@ -15,8 +15,15 @@
 module.exports = {
   data: function () {
     return {
-      msg: 'vue-loader'
+      msg: this.$store.state.login.count
     }
+  },
+  created:function(){
+  	this.$http.post('/someUrl').then((response) => {
+    // success callback
+	}, (response) => {
+	    // error callback
+	})
   },
 }
 </script>
