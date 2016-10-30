@@ -9228,7 +9228,6 @@
 	//
 	//
 	//
-	//
 
 	module.exports = {
 		props: {
@@ -9281,7 +9280,6 @@
 	      "name": name
 	    },
 	    domProps: {
-	      "value": value,
 	      "value": _s(inputValue)
 	    },
 	    on: {

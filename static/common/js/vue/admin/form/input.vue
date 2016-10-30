@@ -21,8 +21,7 @@
 				class="hm_input_inner"
 				v-model="inputValue"
 				type="text"
-				:name="name"
-				:value="value"
+				:name="name"				
 			>
 		</template>
 		<textarea v-else>
