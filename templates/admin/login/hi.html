@@ -5,18 +5,19 @@
 	<title>{{meta_title}}-{{site_title}}-后台管理</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
-	<meta name="author" content="{:C('WEB_SITE_TITLE')}">
+	<meta name="author" content="{{site_title}}">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="generator" content="HemaCms">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="{:C('WEB_SITE_TITLE')}">
+    <meta name="apple-mobile-web-app-title" content="{{site_title}}">
     <meta name="format-detection" content="telephone=no,email=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="apple-touch-icon" type="image/x-icon" href="__ROOT__/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="__ROOT__/logo.png">
- <!--    <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css"> -->
+    <link rel="stylesheet" type="text/css" href="static/common/js/dist/main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css"> -->
     <style type="text/css">
     .tip-darkgray{z-index: 99999;}
     </style>
@@ -28,30 +29,10 @@
 </head>
 <body>
 <div id="baby">
-<p><{count}></p>
-  <p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-  </p>
-<div>
-	<div v-for="(item,index) in items">
-		<div :class="{'class-a':isA,'class-b':isB}">
-			<span style="background: yellow;width:80px;display: inline-block">
-			<{item.name}>
-			</span>
-				<input type="text" v-model="item.value" lazy number><{item.value}>
 
-		</div>
-	</div>
-	计算后结果：<{total}>
-</div>
-<div>
-	<button @click="isA = !isA">isA=<{isA}></button>
-	<button @click="isB = !isB">isA=<{isB}></button>
-</div>
 <div id="container">
     <div id="login-logo">
-        <h1 class="login-logo-image"><favlist></favlist></h1>   
+        <h1 class="login-logo-image"><hm-input size="max" name="woshi" value="123123"></hm-input></h1>   
            
 </form>
     </div>
