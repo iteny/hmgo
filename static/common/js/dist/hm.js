@@ -9228,6 +9228,50 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	module.exports = {
 		props: {
@@ -9239,14 +9283,28 @@
 				type: String,
 				default: 'text'
 			},
+			icon: { //图标
+				type: String,
+				default: ''
+			},
 			size: { //长度大小
 				type: String,
 				default: ''
 			},
+			width: { //长度大小
+				type: String,
+				default: '200px'
+			},
 			name: { //form提交用到的name
 				type: String,
 				default: ''
-			}
+			}, //默认为不禁用
+			disabled: {
+				type: Boolean,
+				default: false
+			},
+			maxlength: Number,
+			minlength: Number
 
 		},
 		data: function data() {
@@ -9265,9 +9323,15 @@
 	  return _h('div', {
 	    class: [
 	      type === 'textarea' ? 'hm_textarea' : 'hm_input',
-	      size ? 'hm_input_' + size : '',
+	      size ? 'hm_input_' + size : '', {
+	        'is_disabled': disabled,
+	        'hm_input_group': $slots.prepend || $slots.append
+	      }
 	    ]
-	  }, [(type !== 'textarea') ? [(type === 'text') ? _h('input', {
+	  }, [(type !== 'textarea') ? [(icon) ? _h('i', {
+	    staticClass: "fa",
+	    class: [icon ? 'fa-' + icon : '']
+	  }) : _e(), " ", " ", (type === 'text') ? _h('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -9277,7 +9341,11 @@
 	    staticClass: "hm_input_inner",
 	    attrs: {
 	      "type": "text",
-	      "name": name
+	      "width": width,
+	      "name": name,
+	      "disabled": disabled,
+	      "maxlength": maxlength,
+	      "minlength": minlength
 	    },
 	    domProps: {
 	      "value": _s(inputValue)
@@ -9288,7 +9356,7 @@
 	        inputValue = $event.target.value
 	      }
 	    }
-	  }) : _e()] : _h('textarea'), " "])
+	  }) : _e(), " ", " "] : _h('textarea'), " "])
 	}},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()

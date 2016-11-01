@@ -1,8 +1,13 @@
 
+input[data-v-6ce9e692]{font-family: inherit;font-size: inherit;
+}
 .hm_input[data-v-6ce9e692]{
 	display: inline-block;
     vertical-align: top;
     margin: 10px 5px;
+    position: relative;
+
+    /*width: 180px;*/
 }
 .hm_input_min[data-v-6ce9e692]{font-size: 14px;
 }
@@ -12,5 +17,37 @@
 }
 .hm_input_max[data-v-6ce9e692]{font-size: 24px;
 }
-.hm_input_max .hm_input_inner[data-v-6ce9e692]{height: 42px;
+.hm_input_inner[data-v-6ce9e692]{display: block;padding: 3px 10px;box-sizing: border-box;width: 100%;
+    height: 36px;color: #1f2d3d;background-color: #fff;background-image: none;
+    border: 1px solid #c0ccda;border-radius: 4px;transition: border-color .2s cubic-bezier(.645,.045,.355,1);-webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);outline: none;line-height: normal;
 }
+.hm_input_inner[data-v-6ce9e692]:focus{outline: none; border-color: #20a0ff;
+}
+.hm_input_min .hm_input_inner[data-v-6ce9e692]{height:36px;font-size: 14px;
+}
+.hm_input_small .hm_input_inner[data-v-6ce9e692]{height:40px;font-size: 20px;
+}
+.hm_input_big .hm_input_inner[data-v-6ce9e692]{height: 44px;font-size: 24px;
+}
+.hm_input_max .hm_input_inner[data-v-6ce9e692]{height: 48px;font-size:28px;
+}
+.hm_input i.fa[data-v-6ce9e692]{
+	position: absolute;
+	/*top:25px;*/
+    width: 35px;
+    height: 100%;
+    text-align: center;
+    color: #c0ccda;
+}
+.hm_input i.fa[data-v-6ce9e692]:after {
+    content: '';
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.hm_input i.left[data-v-6ce9e692]{left: 0;
+}
+.hm_input i.right[data-v-6ce9e692]{right: 0;
+}
+

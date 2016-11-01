@@ -16,6 +16,8 @@
     <link rel="apple-touch-icon" type="image/x-icon" href="__ROOT__/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="__ROOT__/logo.png">
     <link rel="stylesheet" type="text/css" href="static/common/js/dist/main.css">
+    <link rel="stylesheet" type="text/css" href="static/common/js/dist/css/font-awesome.min.css">
+    
     <!-- <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css"> -->
     <style type="text/css">
@@ -33,7 +35,9 @@
 <div id="container">
     <div id="login-logo">
     	<form method="post" action="/me">
-        <h1 class="login-logo-image"><hm-input size="max" name="woshi"></hm-input></h1>  
+        <h1 class="login-logo-image">
+        	<hm-input size="min" name="woshi" :maxlength="121" icon="circle-o-notch fa-spin right fa-1x"></hm-input>
+        </h1>  
         <button type="submit">提交</button>
         </form> 
            
