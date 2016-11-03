@@ -9166,7 +9166,6 @@
 	__vue_options__.__file = "f:\\golib\\src\\hmgo\\static\\common\\js\\vue\\admin\\form\\input.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-	__vue_options__._scopeId = "data-v-6ce9e692"
 
 	/* hot reload */
 	if (false) {(function () {
@@ -9272,16 +9271,69 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	module.exports = {
 		props: {
-			value: {
-				type: String,
-				default: ''
-			},
+			value: [String, Number],
 			type: { //类型text,password,textarea之类的
 				type: String,
 				default: 'text'
+			},
+			placeholder: { //input提示信息,默认为空
+				type: String,
+				default: ''
 			},
 			icon: { //图标
 				type: String,
@@ -9293,19 +9345,39 @@
 			},
 			width: { //长度大小
 				type: String,
-				default: '200px'
+				default: '200'
 			},
 			name: { //form提交用到的name
 				type: String,
 				default: ''
-			}, //默认为不禁用
-			disabled: {
+			},
+			number: {
+				type: Boolean,
+				default: false
+			},
+			disabled: { //默认为不禁用
+				type: Boolean,
+				default: false
+			},
+			autoComplete: { //输入的字段自动完成,默认为开启:on,关闭off
+				type: String,
+				default: 'on'
+			},
+			readonly: { //默认为false:关闭只读,true只读
 				type: Boolean,
 				default: false
 			},
 			maxlength: Number,
 			minlength: Number
 
+		},
+		methods: {
+			handleFocus: function handleFocus(e) {
+				alert('focus');
+			},
+			handleBlur: function handleBlur(e) {
+				alert('blur');
+			}
 		},
 		data: function data() {
 			return {
@@ -9325,10 +9397,15 @@
 	      type === 'textarea' ? 'hm_textarea' : 'hm_input',
 	      size ? 'hm_input_' + size : '', {
 	        'is_disabled': disabled,
-	        'hm_input_group': $slots.prepend || $slots.append
+	        'hm_input_group': $slots.left || $slots.right
 	      }
-	    ]
-	  }, [(type !== 'textarea') ? [(icon) ? _h('i', {
+	    ],
+	    style: ({
+	      width: width + 'px'
+	    })
+	  }, [(type !== 'textarea') ? [($slots.left) ? _h('div', {
+	    staticClass: "hm_input_group_left"
+	  }, [_t("left")]) : _e(), " ", " ", (icon) ? _h('i', {
 	    staticClass: "fa",
 	    class: [icon ? 'fa-' + icon : '']
 	  }) : _e(), " ", " ", (type === 'text') ? _h('input', {
@@ -9341,22 +9418,28 @@
 	    staticClass: "hm_input_inner",
 	    attrs: {
 	      "type": "text",
-	      "width": width,
 	      "name": name,
+	      "placeholder": placeholder,
 	      "disabled": disabled,
 	      "maxlength": maxlength,
-	      "minlength": minlength
+	      "minlength": minlength,
+	      "readonly": readonly,
+	      "autocomplete": autoComplete
 	    },
 	    domProps: {
 	      "value": _s(inputValue)
 	    },
 	    on: {
+	      "focus": handleFocus,
+	      "blur": handleBlur,
 	      "input": function($event) {
 	        if ($event.target.composing) return;
 	        inputValue = $event.target.value
 	      }
 	    }
-	  }) : _e(), " ", " "] : _h('textarea'), " "])
+	  }) : _e(), " ", ($slots.right) ? _h('div', {
+	    staticClass: "hm_input_group_right"
+	  }, [_t("right")]) : _e(), " ", " "] : _h('textarea'), " "])
 	}},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()

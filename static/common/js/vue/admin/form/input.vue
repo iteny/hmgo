@@ -1,13 +1,18 @@
-<style scoped>
+<style>
+body{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;font-weight: 400;}
 input{font-family: inherit;font-size: inherit;}
+input::input-placeholder { line-height: normal; }
+input::-ms-input-placeholder{line-height: normal;}
+input::-webkit-input-placeholder{line-height: normal;}
 .hm_input{
 	display: inline-block;
     vertical-align: top;
     margin: 10px 5px;
     position: relative;
-
-    /*width: 180px;*/
+    width: 180px;
+    font-size: 14px;
 }
+.hm_input_group{min-width: 260px;}
 .hm_input_min{font-size: 14px;}
 .hm_input_small{font-size: 16px;}
 .hm_input_big{font-size: 18px;}
@@ -21,9 +26,9 @@ input{font-family: inherit;font-size: inherit;}
 .hm_input_big .hm_input_inner{height: 44px;font-size: 24px;}
 .hm_input_max .hm_input_inner{height: 48px;font-size:28px;}
 .hm_input i.fa{
-	position: absolute;
-	/*top:25px;*/
-    width: 35px;
+	position: absolute;	
+	top:5%;
+    width: 36px;
     height: 100%;
     text-align: center;
     color: #c0ccda;}
@@ -35,20 +40,61 @@ input{font-family: inherit;font-size: inherit;}
     display: inline-block;
     vertical-align: middle;
 }
+.hm_input i.left+.hm_input_inner{padding-left: 36px;}
+.hm_input i.right+.hm_input_inner{padding-right: 36px;}
 .hm_input i.left{left: 0;}
 .hm_input i.right{right: 0;}
 
+.hm_input_group_left, .hm_input_group_right {
+    background-color: #f9fafc;
+    color: #99a9bf;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    border: 1px solid #c0ccda;
+    border-radius: 4px;
+    padding: 0 10px;
+    width: 1%;
+    white-space: nowrap;
+}
+.hm_input_group_left{border-right: 0;border-top-right-radius: 0; border-bottom-right-radius: 0;}
+.hm_input_group_right {border-left: 0;border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.hm_input_group {
+    display: table;
+    border-collapse: separate;
+}
+.hm_input_group>.hm_input_inner {
+    vertical-align: middle;
+    display: table-cell;
+}
+.hm_input_group .hm_input_inner:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.hm_input_group .hm_input_inner:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.hm_input_group .hm_input_inner:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
 </style>
 <template>
-	<div :class="[
+	<div :style="{ width: width + 'px' }" :class="[
 		type === 'textarea' ? 'hm_textarea' : 'hm_input',
-		size ? 'hm_input_' + size : '',
+		size ? 'hm_input_' + size : '',	
 		{
 	      'is_disabled': disabled,
-	      'hm_input_group': $slots.prepend || $slots.append
+	      'hm_input_group': $slots.left || $slots.right
 	    }
 	]">
 		<template v-if="type !== 'textarea'">
+			<!-- 前置元素 -->
+		    <div class="hm_input_group_left" v-if="$slots.left">
+		        <slot name="left"></slot>
+		    </div>
 			<!-- input 图标 -->
       		<i class="fa" :class="[icon ? 'fa-' + icon : '']" v-if="icon"></i>
       		<!-- <i class="el-input__icon el-icon-loading" v-if="validating"></i> -->
@@ -56,14 +102,20 @@ input{font-family: inherit;font-size: inherit;}
 				v-if="type === 'text'"
 				class="hm_input_inner"
 				v-model="inputValue"
-				type="text"
-				:width="width"
+				type="text"				
 				:name="name"
+				:placeholder="placeholder"
 				:disabled="disabled"
 				:maxlength="maxlength"
         		:minlength="minlength"
-
+        		:readonly="readonly"
+        		:autocomplete="autoComplete"
+        		@focus="handleFocus"
+        		@blur="handleBlur"
 			>
+			<div class="hm_input_group_right" v-if="$slots.right">
+		        <slot name="right"></slot>
+		    </div>
 			<!-- input 右侧图标 -->
       		<!-- <i class="el-input__icon" :class="[icon ? 'el-icon-' + icon : '']" v-if="icon"></i>
       		<i class="el-input__icon el-icon-loading" v-if="validating"></i> -->
@@ -76,13 +128,14 @@ input{font-family: inherit;font-size: inherit;}
 <script>
 module.exports={
 	props:{
-		value: {
-			type:String,
-			default:''
-		},
+		value: [String, Number],
 		type: {//类型text,password,textarea之类的
 	        type: String,
 	        default: 'text'
+	    },
+	    placeholder: {//input提示信息,默认为空
+	        type: String,
+	        default: ''
 	    },
 	    icon: {//图标
 	        type: String,
@@ -94,19 +147,39 @@ module.exports={
       	},
       	width: {//长度大小
         	type: String,
-        	default: '200px'
+        	default: '200'
       	},
       	name: {//form提交用到的name
 	        type: String,
 	        default: ''
-	    },//默认为不禁用
-	    disabled: {
+	    },
+	    number: {
+        	type: Boolean,
+	        default: false
+	    },
+	    disabled: {//默认为不禁用
+	        type: Boolean,
+	        default: false
+	    },
+	    autoComplete: {//输入的字段自动完成,默认为开启:on,关闭off
+	        type: String,
+	        default: 'on'
+	    },
+	    readonly: {//默认为false:关闭只读,true只读
 	        type: Boolean,
 	        default: false
 	    },
 	    maxlength: Number,
       	minlength: Number
 
+	},
+	methods: {
+		handleFocus(e){
+			alert('focus');
+		},
+		handleBlur(e){
+			alert('blur');
+		}
 	},
 	data(){
 		return{
