@@ -1,6 +1,6 @@
 <style>
 body{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;font-weight: 400;}
-input{font-family: inherit;font-size: inherit;}
+input,textarea{font-family: inherit;font-size: inherit;}
 input::input-placeholder { line-height: normal; }
 input::-ms-input-placeholder{line-height: normal;}
 input::-webkit-input-placeholder{line-height: normal;}
@@ -12,6 +12,7 @@ input::-webkit-input-placeholder{line-height: normal;}
     width: 180px;
     font-size: 14px;
 }
+.hm_textarea{width: 180px;}
 .hm_input_group{min-width: 260px;}
 .hm_input_min{font-size: 14px;}
 .hm_input_small{font-size: 16px;}
@@ -110,6 +111,23 @@ input::-webkit-input-placeholder{line-height: normal;}
         		:minlength="minlength"
         		:readonly="readonly"
         		:autocomplete="autoComplete"
+        		ref="input"
+        		@focus="handleFocus"
+        		@blur="handleBlur"
+			>
+			<input 
+				v-if="type === 'password'"
+				class="hm_input_inner"
+				v-model="inputValue"
+				type="password"				
+				:name="name"
+				:placeholder="placeholder"
+				:disabled="disabled"
+				:maxlength="maxlength"
+        		:minlength="minlength"
+        		:readonly="readonly"
+        		:autocomplete="autoComplete"
+        		ref="input"
         		@focus="handleFocus"
         		@blur="handleBlur"
 			>
@@ -120,13 +138,29 @@ input::-webkit-input-placeholder{line-height: normal;}
       		<!-- <i class="el-input__icon" :class="[icon ? 'el-icon-' + icon : '']" v-if="icon"></i>
       		<i class="el-input__icon el-icon-loading" v-if="validating"></i> -->
 		</template>
-		<textarea v-else>
-			
+		<textarea 
+			v-else
+			class="hm_input_inner"
+			v-model="inputValue"			
+			ref="textarea"			
+			:name="name"
+			:placeholder="placeholder"
+			:disabled="disabled"
+			:maxlength="maxlength"
+    		:minlength="minlength"
+    		:readonly="readonly"
+    		:style="textareaStyle"
+    		:rows="rows"
+    		:autocomplete="autoComplete"
+    		@focus="handleFocus"
+    		@blur="handleBlur">			
 		</textarea>
 	</div>
 </template>
 <script>
-module.exports={
+import calcTextareaHeight from './calcTextareaHeight';
+export default{
+	// name: 'HmInput',
 	props:{
 		value: [String, Number],
 		type: {//类型text,password,textarea之类的
@@ -143,7 +177,7 @@ module.exports={
 	    },
 	    size: {//长度大小
         	type: String,
-        	default: ''
+        	default: 'min'
       	},
       	width: {//长度大小
         	type: String,
@@ -165,9 +199,17 @@ module.exports={
 	        type: String,
 	        default: 'on'
 	    },
+	    autosize: {
+	        type: [Boolean, Object],
+	        default: false
+      	},
 	    readonly: {//默认为false:关闭只读,true只读
 	        type: Boolean,
 	        default: false
+	    },
+	    rows: {
+	        type: Number,
+	        default: 2
 	    },
 	    maxlength: Number,
       	minlength: Number
@@ -175,16 +217,54 @@ module.exports={
 	},
 	methods: {
 		handleFocus(e){
-			alert('focus');
+			// this.$emit('onblur', this.inputValue);
+			// alert('focus');
 		},
 		handleBlur(e){
-			alert('blur');
-		}
+			// alert('blur');
+		},
+		inputSelect() {
+        	this.$refs.input.select();
+      	},
+      	resizeTextarea() {
+	        var { autosize, type } = this;
+	        if (!autosize || type !== 'textarea') {
+	          return;
+	        }
+	        const minRows = autosize ? autosize.minRows : null;
+	        const maxRows = autosize ? autosize.maxRows : null;
+	        this.textareaStyle = calcTextareaHeight(this.$refs.textarea, minRows, maxRows);
+	    },
+
+	},
+	created() {
+      this.$on('inputSelect', this.inputSelect);
+    },
+	mounted() {
+		console.info('1111');
 	},
 	data(){
 		return{
-			inputValue:this.value
-			
+			inputValue:this.value,
+			textareaStyle: {}
+		}
+	},
+	watch:{		
+		'inputValue'(val, oldValue) {
+			// this.inputValue = val;
+       	    this.resizeTextarea();
+       	    this.$http.post('/someUrl').then((response) => {
+			    // success callback
+			  }, (response) => {
+			    // error callback
+			});
+       	    // this.inputValue = '';
+       	    this.$validate(true, function () {
+		        console.log('validate done !!')
+		        if (this.$validation.invalid) {
+		          e.preventDefault()
+		        }
+		    })
 		}
 	}
 }

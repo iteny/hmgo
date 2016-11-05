@@ -1,7 +1,7 @@
 
 body{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;font-weight: 400;
 }
-input{font-family: inherit;font-size: inherit;
+input,textarea{font-family: inherit;font-size: inherit;
 }
 input::input-placeholder { line-height: normal;
 }
@@ -16,6 +16,8 @@ input::-webkit-input-placeholder{line-height: normal;
     position: relative;
     width: 180px;
     font-size: 14px;
+}
+.hm_textarea{width: 180px;
 }
 .hm_input_group{min-width: 260px;
 }
