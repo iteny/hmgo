@@ -11057,7 +11057,7 @@
 	__vue_exports__ = __webpack_require__(6)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(8)
+	var __vue_template__ = __webpack_require__(9)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -11110,7 +11110,171 @@
 
 	var _calcTextareaHeight2 = _interopRequireDefault(_calcTextareaHeight);
 
+	var _validate = __webpack_require__(8);
+
+	var _validate2 = _interopRequireDefault(_validate);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 		// name: 'HmInput',
@@ -11195,7 +11359,7 @@
 			this.$on('inputSelect', this.inputSelect);
 		},
 		mounted: function mounted() {
-			console.info('1111');
+			// console.info('1111');
 		},
 		data: function data() {
 			return {
@@ -11213,174 +11377,10 @@
 				}, function (response) {
 					// error callback
 				});
-				// this.inputValue = '';
-				this.$validate(true, function () {
-					console.log('validate done !!');
-					if (this.$validation.invalid) {
-						e.preventDefault();
-					}
-				});
+				console.info((0, _validate2.default)(this.$refs.input));
 			}
 		}
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
+	};
 
 /***/ },
 /* 7 */
@@ -11465,6 +11465,97 @@
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = validate;
+	var errMsg = {
+	    //检查特定字段是否必填
+	    required: {
+	        msg: '这个字段不能为空',
+	        test: function test(obj, load) {
+	            return obj.value.length > 0 && obj.value != obj.defaultValue;
+	        }
+	    },
+	    //确保字段内容是正确的email地址
+	    email: {
+	        msg: 'Not a valid email address.',
+	        test: function test(obj) {
+	            //确保有内容的输入并符合email地址的格式
+	            return !obj.value || /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(obj.value);
+	        }
+	    },
+	    //确保字段内容是电话号码并将其自动格式化
+	    phone: {
+	        msg: 'Not a valid phone number',
+	        test: function test(obj) {
+	            var m = /(\d{3}).*(\d{3}).*(\d{4})/.exec(obj.value);
+	            if (m) {
+	                obj.value = "(" + m[1] + ")" + m[2] + "-" + m[3];
+	                return !obj.value || m;
+	            }
+	        }
+	    },
+	    //确保字段内容符合MM/DD/YYYY的时间格式
+	    date: {
+	        msg: 'Not a valid date.',
+	        test: function test(obj) {
+	            return !obj.value || /^\d{2}\/d{2}\/d{2,4}$/.test(obj.value);
+	        }
+	    },
+	    url: {
+	        msg: 'Not a valid URL.',
+	        test: function test(obj) {
+	            return !obj.value || obj.value == 'http:://' || /^https?:\/\/([a-z0-9-]+\.)+[a-z0-9]{2,4}.*$/.test(obj.value);
+	        }
+	    }
+
+	};
+	//显示表单内特定字段的错误信息
+	function showErrors(elem, errors) {
+	    var next = elem.nextSibling; //获取当前字段的下一个元素
+	    if (next && (next.nodeName != 'UL' || next.className != 'errors')) {
+	        next = document.createElement('ul');
+	        next.className = 'errors';
+	        elem.parentNode.insertBefore(next, elem.nextSibling);
+	    }
+	    //有一个包含错误的容器引用，我们可以遍历所有的错误信息
+	    for (var i = 0; i < errors.length; i++) {
+	        var li = document.createElement('li'); //为每一个错误信息创建新的li包裹器
+	        li.innerHTML = errors[i];
+	        next.appendChild(li); //并插入到dom中
+	    }
+	}
+	//验证单个字段的内容
+	function validateField(elem, load) {
+	    var errors = [];
+	    console.info(elem.className);
+	    for (var name in errMsg) {
+	        var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
+	        if (re.test(elem.className) && !errMsg[name].test(elem, load)) {
+	            //如果没有通过验证，把错误信息增加到列表中
+	            errors.push(errMsg[name].msg);
+	        }
+	    }
+	    if (errors.length) {
+	        //如果存在错误信息，则显示出来
+	        showErrors(elem, errors);
+	    }
+	    return errors.length > 0;
+	}
+	function validate(elem) {
+
+	    var me = validateField(elem) ? 'false' : 'true';
+
+	    return me;
+	}
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){with(this) {
@@ -11492,7 +11583,7 @@
 	      expression: "inputValue"
 	    }],
 	    ref: "input",
-	    staticClass: "hm_input_inner",
+	    staticClass: "email hm_input_inner",
 	    attrs: {
 	      "type": "text",
 	      "name": name,

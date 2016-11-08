@@ -101,7 +101,7 @@ input::-webkit-input-placeholder{line-height: normal;}
       		<!-- <i class="el-input__icon el-icon-loading" v-if="validating"></i> -->
 			<input 
 				v-if="type === 'text'"
-				class="hm_input_inner"
+				class="email hm_input_inner"
 				v-model="inputValue"
 				type="text"				
 				:name="name"
@@ -159,6 +159,7 @@ input::-webkit-input-placeholder{line-height: normal;}
 </template>
 <script>
 import calcTextareaHeight from './calcTextareaHeight';
+import validate from './validate.js';
 export default{
 	// name: 'HmInput',
 	props:{
@@ -241,7 +242,7 @@ export default{
       this.$on('inputSelect', this.inputSelect);
     },
 	mounted() {
-		console.info('1111');
+		// console.info('1111');
 	},
 	data(){
 		return{
@@ -258,13 +259,7 @@ export default{
 			  }, (response) => {
 			    // error callback
 			});
-       	    // this.inputValue = '';
-       	    this.$validate(true, function () {
-		        console.log('validate done !!')
-		        if (this.$validation.invalid) {
-		          e.preventDefault()
-		        }
-		    })
+       	    console.info(validate(this.$refs.input));
 		}
 	}
 }
