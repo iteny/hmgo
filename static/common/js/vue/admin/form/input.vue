@@ -11,7 +11,10 @@ input::-webkit-input-placeholder{line-height: normal;}
     position: relative;
     width: 180px;
     font-size: 14px;
+    height: 36px;
 }
+.errors{position: absolute;top:36px;z-index: 100;display:block;}
+/*.errors:hover::before { content: "\5B"; left: -20px; }*/
 .hm_textarea{width: 180px;}
 .hm_input_group{min-width: 260px;}
 .hm_input_min{font-size: 14px;}
@@ -131,6 +134,7 @@ input::-webkit-input-placeholder{line-height: normal;}
         		@focus="handleFocus"
         		@blur="handleBlur"
 			>
+			<!-- <div class="errors"></div> -->
 			<div class="hm_input_group_right" v-if="$slots.right">
 		        <slot name="right"></slot>
 		    </div>
@@ -259,7 +263,8 @@ export default{
 			  }, (response) => {
 			    // error callback
 			});
-       	    console.info(validate(this.$refs.input));
+       	    validate(this.$refs.input);
+
 		}
 	}
 }

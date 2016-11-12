@@ -1,11 +1,11 @@
 import Vue from 'vue/dist/vue'
 import VueAjax from 'vue-resource/dist/vue-resource'
-import Validator from 'vue-validator/dist/vue-validator'
+// import Validator from 'vue-validator/dist/vue-validator'
 import input from './admin/form/input'
 // import echarts from './admin/echarts'
 
 Vue.use(VueAjax)
-Vue.use(Validator)
+// Vue.use(Validator)
 Vue.config.devtools = true
 const app = new Vue({
 	delimiters: ['<{', '}>'],

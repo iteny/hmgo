@@ -41,24 +41,27 @@ let errMsg = {
 
 };
 //显示表单内特定字段的错误信息
-function showErrors(elem, errors) {
+function showErrors(elem, errors,leng) {
     var next = elem.nextSibling;//获取当前字段的下一个元素
-    if (next && (next.nodeName != 'UL' || next.className != 'errors')) {
-        next = document.createElement('ul');
+    if (next && (next.nodeName != 'div' && next.className != 'errors')) {
+        next = document.createElement('div');
         next.className = 'errors';
         elem.parentNode.insertBefore(next, elem.nextSibling);
     }
+    // next.className = 'errors';
     //有一个包含错误的容器引用，我们可以遍历所有的错误信息
-    for (var i = 0; i < errors.length; i++) {
-        var li = document.createElement('li');//为每一个错误信息创建新的li包裹器
+    var li = document.createElement('span');
+	for (var i = 0; i < errors.length; i++) {
+    //为每一个错误信息创建新的li包裹器
         li.innerHTML = errors[i];
-        next.appendChild(li);//并插入到dom中
+        if(next.firstChild == null){
+        	next.appendChild(li);//并插入到dom中
+        }
     }
 }
 //验证单个字段的内容
 function validateField(elem, load) {
     var errors = [];
-    console.info(elem.className);
     for (var name in errMsg) {
         var re = new RegExp("(^|\\s)" + name + "(\\s|$)");        
         if (re.test(elem.className) && !errMsg[name].test(elem, load)) {//如果没有通过验证，把错误信息增加到列表中
@@ -68,6 +71,11 @@ function validateField(elem, load) {
     if (errors.length) {//如果存在错误信息，则显示出来
         showErrors(elem, errors);
     }
+    
+    var nex = elem.nextSibling;
+    if(errors.length == 0 && nex.className == 'errors'){
+    	nex.parentNode.removeChild(nex);
+    }
     return errors.length > 0;
 }
 export default function validate(
@@ -75,6 +83,5 @@ export default function validate(
 ){
 	
     let me = validateField(elem) ? 'false' : 'true';
-
     return me;
 }
