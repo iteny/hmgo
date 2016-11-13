@@ -43,9 +43,9 @@ let errMsg = {
 //显示表单内特定字段的错误信息
 function showErrors(elem, errors,leng) {
     var next = elem.nextSibling;//获取当前字段的下一个元素
-    if (next && (next.nodeName != 'div' && next.className != 'errors')) {
+    if (next && (next.nodeName != 'div' && next.className != 'error')) {
         next = document.createElement('div');
-        next.className = 'errors';
+        next.className = 'error';
         elem.parentNode.insertBefore(next, elem.nextSibling);
     }
     // next.className = 'errors';
@@ -73,7 +73,7 @@ function validateField(elem, load) {
     }
     
     var nex = elem.nextSibling;
-    if(errors.length == 0 && nex.className == 'errors'){
+    if(errors.length == 0 && nex.className == 'error'){
     	nex.parentNode.removeChild(nex);
     }
     return errors.length > 0;

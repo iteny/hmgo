@@ -18,7 +18,24 @@ input::-webkit-input-placeholder{line-height: normal;
     font-size: 14px;
     height: 36px;
 }
-.errors{position: absolute;top:36px;z-index: 100;display:block;
+.error{position: absolute;top:44px;z-index: 100;display:block;
+	background: #ddd;padding: 5px 5px;
+}
+.error:before{
+	position: absolute;
+    left: 13px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-width: 0px 8px 8px 8px;
+    border-style: solid;
+    border-color: #d36969 transparent;
+    -webkit-transition: transform .25s;
+       -moz-transition: transform .25s;
+        -ms-transition: transform .25s;
+         -o-transition: transform .25s;
+            transition: transform .25s;
 }
 /*.errors:hover::before { content: "\5B"; left: -20px; }*/
 .hm_textarea{width: 180px;
@@ -46,6 +63,14 @@ input::-webkit-input-placeholder{line-height: normal;
 .hm_input_big .hm_input_inner{height: 44px;font-size: 24px;
 }
 .hm_input_max .hm_input_inner{height: 48px;font-size:28px;
+}
+.hm_input_min .error{top:44px;
+}
+.hm_input_small .error{top:48px;
+}
+.hm_input_big .error{top:52px;
+}
+.hm_input_max .error{top:56px;
 }
 .hm_input i.fa{
 	position: absolute;	
