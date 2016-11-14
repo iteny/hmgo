@@ -129,7 +129,8 @@ input::-webkit-input-placeholder{line-height: normal;}
 				v-if="type === 'text'"
 				class="email hm_input_inner"
 				v-model="inputValue"
-				type="text"				
+				type="text"			
+				:class="[validata === '' ? '' : validata]"	
 				:name="name"
 				:placeholder="placeholder"
 				:disabled="disabled"
@@ -192,6 +193,10 @@ export default{
 	props:{
 		value: [String, Number],
 		type: {//类型text,password,textarea之类的
+	        type: String,
+	        default: 'text'
+	    },
+	    validata: {//输入验证的数据
 	        type: String,
 	        default: 'text'
 	    },
@@ -287,6 +292,9 @@ export default{
 			    // error callback
 			});
        	    validate(this.$refs.input);
+       	    // $(this.$refs.input).click(function(){
+       	    // 	alert('111');
+       	    // });
 
 		}
 	}
