@@ -14,7 +14,7 @@ input::-webkit-input-placeholder{line-height: normal;}
     height: 36px;
 }
 .error{position: absolute;top:44px;z-index: 100;display:block;
-	background: #ddd;padding: 5px 5px;
+	background: #324057;padding: 5px 5px;border-radius: 4px;
 	
 }
 .error:before{
@@ -26,13 +26,14 @@ input::-webkit-input-placeholder{line-height: normal;}
     content: "";
     border-width: 0px 8px 8px 8px;
     border-style: solid;
-    border-color: #d36969 transparent;
+    border-color: #324057 transparent;
     -webkit-transition: transform .25s;
        -moz-transition: transform .25s;
         -ms-transition: transform .25s;
          -o-transition: transform .25s;
             transition: transform .25s;
 }
+.error span{color: white;}
 /*.errors:hover::before { content: "\5B"; left: -20px; }*/
 .hm_textarea{width: 180px;}
 .hm_input_group{min-width: 260px;}
@@ -67,6 +68,7 @@ input::-webkit-input-placeholder{line-height: normal;}
     display: inline-block;
     vertical-align: middle;
 }
+.hm_input i.clear{position: relative;top:0.1em;width: 100%;}
 .hm_input i.left+.hm_input_inner{padding-left: 36px;}
 .hm_input i.right+.hm_input_inner{padding-right: 36px;}
 .hm_input i.left{left: 0;}
@@ -119,7 +121,7 @@ input::-webkit-input-placeholder{line-height: normal;}
 	]">
 		<template v-if="type !== 'textarea'">
 			<!-- 前置元素 -->
-		    <div class="hm_input_group_left" v-if="$slots.left">
+		    <div :style="{ width: slotleft + 'px' }" class="hm_input_group_left" v-if="$slots.left">
 		        <slot name="left"></slot>
 		    </div>
 			<!-- input 图标 -->
@@ -127,7 +129,7 @@ input::-webkit-input-placeholder{line-height: normal;}
       		<!-- <i class="el-input__icon el-icon-loading" v-if="validating"></i> -->
 			<input 
 				v-if="type === 'text'"
-				class="email hm_input_inner"
+				class="hm_input_inner"
 				v-model="inputValue"
 				type="text"			
 				:class="[validata === '' ? '' : validata]"	
@@ -215,6 +217,10 @@ export default{
       	width: {//长度大小
         	type: String,
         	default: '200'
+      	},
+      	slotleft: {//长度大小
+        	type: String,
+        	default: '100'
       	},
       	name: {//form提交用到的name
 	        type: String,

@@ -17,6 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="__ROOT__/logo.png">
     <link rel="stylesheet" type="text/css" href="static/common/js/dist/main.css">
     <link rel="stylesheet" type="text/css" href="static/common/js/dist/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/common/js/dist/me.css">
     
     <!-- <link rel="stylesheet" type="text/css" href="/public/admin/css/frame.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="/public/common/js/poshytip/src/tip-darkgray/tip-darkgray.css"> -->
@@ -32,27 +33,29 @@
 <body>
 <div id="baby">
 
-<div id="container">
-    <div id="login-logo">
+
+    <div id="login">
     	<form method="post" action="/me">
-        
-        	<hm-input validata="zifu" size="big" name="woshi" :maxlength="121" placeholder="你好">
-        		 <template slot="left">Http://</template>
-        		 <template slot="right">.com</template>
+            &nbsp;
+        	<hm-input width="300" slotleft="80" validata="zifu email" size="big" name="username" :maxlength="121" placeholder="">
+        		 <template slot="left"><{ $t("message.username") }></template>
+        		 <template slot="right"><i style="width:32px;" class="fa fa-user-circle fa-lg clear"></i></template>
         	</hm-input>
-        	<hm-input size="min" value="asdf" name="sss" :maxlength="123123" icon="circle-o-notch right fa-lg"></hm-input>
-        	<hm-input type="textarea" name="me" value="asdfasd" autosize ></hm-input>
+            <hm-input width="300" slotleft="80" validata="zifu email" size="big" name="password" :maxlength="121" placeholder="">
+                 <template slot="left"><{ $t("message.password") }></template>
+                 <template slot="right"><i style="width:32px;" class="fa fa-lock fa-lg clear"></i></template>
+            </hm-input>
+        <!-- 	<hm-input size="min" value="asdf" name="sss" :maxlength="123123" icon="circle-o-notch right fa-lg"></hm-input>
+        	<hm-input type="textarea" name="me" value="asdfasd" autosize ></hm-input> -->
        
-        	<button type="submit">提交</button>
+        	<!-- <button type="submit">提交</button> -->
         </form> 
-           
-</form>
     </div>
-    <form method="post" action="/intendant/login/index" id="form-login" >
+    <!-- <form method="post" action="/intendant/login/index" id="form-login" >
         <ul class="inputs black-input large">
             <!-- The autocomplete="off" attributes is the only way to prevent webkit browsers from filling the inputs with yellow -->
             
-            <li id="userli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe600;</i><input type="text" name="username" id="username" value="" class="input-unstyled" placeholder="用户名" autocomplete="off" disabled></li>
+        <!--     <li id="userli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe600;</i><input type="text" name="username" id="username" value="" class="input-unstyled" placeholder="用户名" autocomplete="off" disabled></li>
             <li id="passli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe601;</i><input type="password" name="password" id="password" value="" class="input-unstyled" placeholder="密码" autocomplete="off" disabled></li>
             <li id="verifyli"><i class="iconfont" style="color:white;font-size: 18px;margin-right: 10px;">&#xe602;</i><input style="width:120px" type="text" name="verify" id="verify" value="" class="input-unstyled" placeholder="验证码" autocomplete="off">
                 <div class="yanzhengma_box" id="verifyshow"><img class="yanzheng_img" id="code_img" src=""  width="130" height="58" onclick="refreshs()"></div>
@@ -60,8 +63,8 @@
         </ul>
 
         <button type="submit" class="button glossy full-width huge" id="loginsubmit">登录</button>
-    </form>
-</div>
+    </form> --> 
+
 </div>
 </body>
 <script>

@@ -1,10 +1,30 @@
 import Vue from 'vue/dist/vue'
 import VueAjax from 'vue-resource/dist/vue-resource'
+import VueI18n from 'vue-i18n/dist/vue-i18n'
 // import Validator from 'vue-validator/dist/vue-validator'
 import input from './admin/form/input'
 // import echarts from './admin/echarts'
 
+var locales = {
+  cn: {
+    message: {
+      username: '用户名',
+      password: '密码'
+    }
+  },
+  en: {
+    message: {
+      username: 'username',
+      password: 'password',
+    }
+  }
+}
 Vue.use(VueAjax)
+Vue.use(VueI18n)
+Vue.config.lang = 'cn';
+Object.keys(locales).forEach(function (lang) {
+  Vue.locale(lang, locales[lang])
+})
 // Vue.use(Validator)
 Vue.config.devtools = true
 const app = new Vue({
