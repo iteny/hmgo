@@ -101,6 +101,9 @@ type Router struct {
 	PanicHandler func(http.ResponseWriter, *http.Request, interface{})
 }
 
+// Make sure the Router conforms with the http.Handler interface
+var _ http.Handler = New()
+
 // New returns a new initialized Router.
 // New函数返回一个新的初始化Router结构体
 // Path auto-correction,including trailing slashes,is enabled by default.
