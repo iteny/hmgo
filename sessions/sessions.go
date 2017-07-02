@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gorilla/context"
+	"github.com/iteny/hmgo/context"
 )
 
 // Default flashes key.
