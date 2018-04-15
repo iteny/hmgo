@@ -36,7 +36,8 @@
 |x{-n}|	(≡ x{n}?) (NOT SUPPORTED) VIM|不支持VIM|
 |x=|	(≡ x?) (NOT SUPPORTED) VIM|不支持VIM|
 
-Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject forms that create a minimum or maximum repetition count above 1000. Unlimited repetitions are not subject to this restriction.
+Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject forms that create a minimum or maximum repetition count above 1000. Unlimited repetitions are not subject to this restriction.  
+
 使用限制：计数形式x {n，m}，x {n，}和x {n}拒绝创建1000以上的最小或最大重复次数的表单。无限重复不受此限制。
 
 Possessive repetitions
