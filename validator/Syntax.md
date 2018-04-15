@@ -235,208 +235,215 @@ Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject fo
 |Zp|	paragraph separator|段落分隔符|
 |Zs|	space separator|空白分隔符|
 
-Unicode character class names--scripts
-Adlam
-Ahom
-Anatolian_Hieroglyphs
-Arabic
-Armenian
-Avestan
-Balinese
-Bamum
-Bassa_Vah
-Batak
-Bengali
-Bhaiksuki
-Bopomofo
-Brahmi
-Braille
-Buginese
-Buhid
-Canadian_Aboriginal
-Carian
-Caucasian_Albanian
-Chakma
-Cham
-Cherokee
-Common
-Coptic
-Cuneiform
-Cypriot
-Cyrillic
-Deseret
-Devanagari
-Duployan
-Egyptian_Hieroglyphs
-Elbasan
-Ethiopic
-Georgian
-Glagolitic
-Gothic
-Grantha
-Greek
-Gujarati
-Gurmukhi
-Han
-Hangul
-Hanunoo
-Hatran
-Hebrew
-Hiragana
-Imperial_Aramaic
-Inherited
-Inscriptional_Pahlavi
-Inscriptional_Parthian
-Javanese
-Kaithi
-Kannada
-Katakana
-Kayah_Li
-Kharoshthi
-Khmer
-Khojki
-Khudawadi
-Lao
-Latin
-Lepcha
-Limbu
-Linear_A
-Linear_B
-Lisu
-Lycian
-Lydian
-Mahajani
-Malayalam
-Mandaic
-Manichaean
-Marchen
-Masaram_Gondi
-Meetei_Mayek
-Mende_Kikakui
-Meroitic_Cursive
-Meroitic_Hieroglyphs
-Miao
-Modi
-Mongolian
-Mro
-Multani
-Myanmar
-Nabataean
-New_Tai_Lue
-Newa
-Nko
-Nushu
-Ogham
-Ol_Chiki
-Old_Hungarian
-Old_Italic
-Old_North_Arabian
-Old_Permic
-Old_Persian
-Old_South_Arabian
-Old_Turkic
-Oriya
-Osage
-Osmanya
-Pahawh_Hmong
-Palmyrene
-Pau_Cin_Hau
-Phags_Pa
-Phoenician
-Psalter_Pahlavi
-Rejang
-Runic
-Samaritan
-Saurashtra
-Sharada
-Shavian
-Siddham
-SignWriting
-Sinhala
-Sora_Sompeng
-Soyombo
-Sundanese
-Syloti_Nagri
-Syriac
-Tagalog
-Tagbanwa
-Tai_Le
-Tai_Tham
-Tai_Viet
-Takri
-Tamil
-Tangut
-Telugu
-Thaana
-Thai
-Tibetan
-Tifinagh
-Tirhuta
-Ugaritic
-Vai
-Warang_Citi
-Yi
-Zanabazar_Square
-Vim character classes
-\i	identifier character (NOT SUPPORTED) VIM
-\I	\i except digits (NOT SUPPORTED) VIM
-\k	keyword character (NOT SUPPORTED) VIM
-\K	\k except digits (NOT SUPPORTED) VIM
-\f	file name character (NOT SUPPORTED) VIM
-\F	\f except digits (NOT SUPPORTED) VIM
-\p	printable character (NOT SUPPORTED) VIM
-\P	\p except digits (NOT SUPPORTED) VIM
-\s	whitespace character (≡ [ \t]) (NOT SUPPORTED) VIM
-\S	non-white space character (≡ [^ \t]) (NOT SUPPORTED) VIM
-\d	digits (≡ [0-9]) VIM
-\D	not \d VIM
-\x	hex digits (≡ [0-9A-Fa-f]) (NOT SUPPORTED) VIM
-\X	not \x (NOT SUPPORTED) VIM
-\o	octal digits (≡ [0-7]) (NOT SUPPORTED) VIM
-\O	not \o (NOT SUPPORTED) VIM
-\w	word character VIM
-\W	not \w VIM
-\h	head of word character (NOT SUPPORTED) VIM
-\H	not \h (NOT SUPPORTED) VIM
-\a	alphabetic (NOT SUPPORTED) VIM
-\A	not \a (NOT SUPPORTED) VIM
-\l	lowercase (NOT SUPPORTED) VIM
-\L	not lowercase (NOT SUPPORTED) VIM
-\u	uppercase (NOT SUPPORTED) VIM
-\U	not uppercase (NOT SUPPORTED) VIM
-\_x	\x plus newline, for any x (NOT SUPPORTED) VIM
-\c	ignore case (NOT SUPPORTED) VIM
-\C	match case (NOT SUPPORTED) VIM
-\m	magic (NOT SUPPORTED) VIM
-\M	nomagic (NOT SUPPORTED) VIM
-\v	verymagic (NOT SUPPORTED) VIM
-\V	verynomagic (NOT SUPPORTED) VIM
-\Z	ignore differences in Unicode combining characters (NOT SUPPORTED) VIM
-Magic
-(?{code})	arbitrary Perl code (NOT SUPPORTED) PERL
-(??{code})	postponed arbitrary Perl code (NOT SUPPORTED) PERL
-(?n)	recursive call to regexp capturing group n (NOT SUPPORTED)
-(?+n)	recursive call to relative group +n (NOT SUPPORTED)
-(?-n)	recursive call to relative group -n (NOT SUPPORTED)
-(?C)	PCRE callout (NOT SUPPORTED) PCRE
-(?R)	recursive call to entire regexp (≡ (?0)) (NOT SUPPORTED)
-(?&name)	recursive call to named group (NOT SUPPORTED)
-(?P=name)	named backreference (NOT SUPPORTED)
-(?P>name)	recursive call to named group (NOT SUPPORTED)
-(?(cond)true|false)	conditional branch (NOT SUPPORTED)
-(?(cond)true)	conditional branch (NOT SUPPORTED)
-(*ACCEPT)	make regexps more like Prolog (NOT SUPPORTED)
-(*COMMIT)	(NOT SUPPORTED)
-(*F)	(NOT SUPPORTED)
-(*FAIL)	(NOT SUPPORTED)
-(*MARK)	(NOT SUPPORTED)
-(*PRUNE)	(NOT SUPPORTED)
-(*SKIP)	(NOT SUPPORTED)
-(*THEN)	(NOT SUPPORTED)
-(*ANY)	set newline convention (NOT SUPPORTED)
-(*ANYCRLF)	(NOT SUPPORTED)
-(*CR)	(NOT SUPPORTED)
-(*CRLF)	(NOT SUPPORTED)
-(*LF)	(NOT SUPPORTED)
-(*BSR_ANYCRLF)	set \R convention (NOT SUPPORTED) PCRE
-(*BSR_UNICODE)	(NOT SUPPORTED) PCRE
+
+|expression|Unicode character class names--scripts|Unicode字符类-脚本类|
+|:-|:-|:-|
+|Adlam||日耳曼文|
+|Ahom||阿霍姆文|
+|Anatolian_Hieroglyphs||安那托利亚文|
+|Arabic||阿拉伯文|
+|Armenian||亚美尼亚文|
+|Avestan||阿维斯陀文|
+|Balinese||巴厘文|
+|Bamum||巴姆文|
+|Bassa_Vah||巴萨文|
+|Batak||巴塔克文|
+|Bengali||孟加拉文|
+|Bhaiksuki||梵文|
+|Bopomofo||汉语拼音字母|
+|Brahmi||婆罗米文|
+|Braille||盲文|
+|Buginese||布吉文|
+|Buhid||布迪文|
+|Canadian_Aboriginal||加拿大土著文|
+|Carian||卡里安文|
+|Caucasian_Albanian||高加索文|
+|Chakma||查克马文|
+|Cham||可汗文|
+|Cherokee||切罗基文|
+|Common||普通的，字符不是特定于一个脚本|
+|Coptic||科普特文|
+|Cuneiform||楔形文字|
+|Cypriot||塞浦路斯文|
+|Cyrillic||斯拉夫文|
+|Deseret||犹他州文|
+|Devanagari||梵文|
+|Duployan||速记文|
+|Egyptian_Hieroglyphs||古埃及的象形文字|
+|Elbasan||爱尔巴桑文|
+|Ethiopic||埃塞俄比亚文|
+|Georgian||格鲁吉亚文|
+|Glagolitic||格拉哥里文|
+|Gothic||哥特文|
+|Grantha||泰米尔文|
+|Greek||希腊文|
+|Gujarati||古吉拉特文|
+|Gurmukhi||果鲁穆奇文|
+|Han||汉文|
+|Hangul||韩文|
+|Hanunoo||哈鲁喏文|
+|Hatran||阿拉米文|
+|Hebrew||希伯来文|
+|Hiragana||平假名（日语）|
+|Imperial_Aramaic||亚拉姆文|
+|Inherited||继承前一个字符的脚本|
+|Inscriptional_Pahlavi||巴列维文|
+|Inscriptional_Parthian||希伯来文分支|
+|Javanese||瓜哇文|
+|Kaithi||比哈尔文|
+|Kannada||埃纳德文|
+|Katakana||片假名（日语）|
+|Kayah_Li||克耶字母|
+|Kharoshthi||卡罗须提文|
+|Khmer||高棉文|
+|Khojki||旁遮普文|
+|Khudawadi||信德文|
+|Lao||老挝文|
+|Latin||拉丁文|
+|Lepcha||雷布查文|
+|Limbu||林布文|
+|Linear_A||A类线形文字（古希腊）|
+|Linear_B||B类线形文字（古希腊）|
+|Lisu||傈僳文|
+|Lycian||利西亚文|
+|Lydian||吕底亚文|
+|Mahajani||马尔瓦尔文|
+|Malayalam||马拉雅拉姆文|
+|Mandaic||曼达派文|
+|Manichaean||摩尼教文|
+|Marchen||童话|
+|Masaram_Gondi|||
+|Meetei_Mayek|||
+|Mende_Kikakui|||
+|Meroitic_Cursive|||
+|Meroitic_Hieroglyphs|||
+|Miao||苗文|
+|Modi||程序|
+|Mongolian||蒙古文|
+|Mro|||
+|Multani|||
+|Myanmar||缅甸文|
+|Nabataean||纳巴泰文|
+|New_Tai_Lue||新傣仂文|
+|Newa||消息|
+|Nko||Nko文|
+|Nushu||女书|
+|Ogham||欧甘文|
+|Ol_Chiki||桑塔利文|
+|Old_Hungarian||古匈牙利文|
+|Old_Italic||古意大利文|
+|Old_North_Arabian||古北阿拉伯文|
+|Old_Permic||古彼尔姆文|
+|Old_Persian||古波斯文|
+|Old_South_Arabian||古南阿拉伯文|
+|Old_Turkic||古土耳其文|
+|Oriya||奥里雅文|
+|Osage||奥色治文|
+|Osmanya||奥斯曼亚文|
+|Pahawh_Hmong||赫蒙文|
+|Palmyrene|||
+|Pau_Cin_Hau|||
+|Phags_Pa|||
+|Phoenician||腓尼基文|
+|Psalter_Pahlavi|||
+|Rejang||拉让文|
+|Runic||古代北欧文|
+|Samaritan||撒马利亚文|
+|Saurashtra||索拉什特拉文（印度县城）|
+|Sharada||莎拉达文|
+|Shavian||萧伯纳文|
+|Siddham|||
+|SignWriting|||
+|Sinhala||僧伽罗文|
+|Sora_Sompeng|||
+|Soyombo||索永布文|
+|Sundanese||巽他文|
+|Syloti_Nagri||锡尔赫特文|
+|Syriac||叙利亚文|
+|Tagalog||塔加拉文|
+|Tagbanwa||塔格巴努亚文|
+|Tai_Le||德宏傣文|
+|Tai_Tham|||
+|Tai_Viet|||
+|Takri|||
+|Tamil||泰米尔文|
+|Tangut||西藏文|
+|Telugu||泰卢固文|
+|Thaana||塔安那文|
+|Thai||泰文|
+|Tibetan||藏文|
+|Tifinagh||提非纳文|
+|Tirhuta|||
+|Ugaritic||乌加里特文|
+|Vai||瓦伊文|
+|Warang_Citi|||
+|Yi||彝文|
+|Zanabazar_Square|||
+
+
+|expression|Vim character classes|Vim字符类|
+|:-|:-|:-|
+|\i|	identifier character (NOT SUPPORTED) VIM||
+|\I|	\i except digits (NOT SUPPORTED) VIM||
+|\k|	keyword character (NOT SUPPORTED) VIM||
+|\K|	\k except digits (NOT SUPPORTED) VIM||
+|\f|	file name character (NOT SUPPORTED) VIM||
+|\F|	\f except digits (NOT SUPPORTED) VIM||
+|\p|	printable character (NOT SUPPORTED) VIM||
+|\P|	\p except digits (NOT SUPPORTED) VIM||
+|\s|	whitespace character (≡ [ \t]) (NOT SUPPORTED) VIM||
+|\S|	non-white space character (≡ [^ \t]) (NOT SUPPORTED) VIM||
+|\d|	digits (≡ [0-9]) VIM||
+|\D|	not \d VIM||
+|\x|	hex digits (≡ [0-9A-Fa-f]) (NOT SUPPORTED) VIM||
+|\X|	not \x (NOT SUPPORTED) VIM||
+|\o|	octal digits (≡ [0-7]) (NOT SUPPORTED) VIM||
+|\O|	not \o (NOT SUPPORTED) VIM||
+|\w|	word character VIM||
+|\W|	not \w VIM||
+|\h|	head of word character (NOT SUPPORTED) VIM||
+|\H|	not \h (NOT SUPPORTED) VIM||
+|\a|	alphabetic (NOT SUPPORTED) VIM||
+|\A|	not \a (NOT SUPPORTED) VIM||
+|\l|	lowercase (NOT SUPPORTED) VIM||
+|\L|	not lowercase (NOT SUPPORTED) VIM||
+|\u|	uppercase (NOT SUPPORTED) VIM||
+|\U|	not uppercase (NOT SUPPORTED) VIM||
+|\_x|	\x plus newline, for any x (NOT SUPPORTED) VIM||
+|\c|	ignore case (NOT SUPPORTED) VIM||
+|\C|	match case (NOT SUPPORTED) VIM||
+|\m|	magic (NOT SUPPORTED) VIM||
+|\M|	nomagic (NOT SUPPORTED) VIM||
+|\v|	verymagic (NOT SUPPORTED) VIM||
+|\V|	verynomagic (NOT SUPPORTED) VIM||
+|\Z|	ignore differences in Unicode combining characters (NOT SUPPORTED) VIM||
+
+|expression|Magic|魔法|
+|:-|:-|:-|
+|(?{code})|	arbitrary Perl code (NOT SUPPORTED) PERL||
+|(??{code})|	postponed arbitrary Perl code (NOT SUPPORTED) PERL||
+|(?n)|	recursive call to regexp capturing group n (NOT SUPPORTED)||
+|(?+n)|	recursive call to relative group +n (NOT SUPPORTED)||
+|(?-n)|	recursive call to relative group -n (NOT SUPPORTED)||
+|(?C)|	PCRE callout (NOT SUPPORTED) PCRE||
+|(?R)|	recursive call to entire regexp (≡ (?0)) (NOT SUPPORTED)||
+|(?&name)|	recursive call to named group (NOT SUPPORTED)||
+|(?P=name)|	named backreference (NOT SUPPORTED)||
+|(?P>name)|	recursive call to named group (NOT SUPPORTED)||
+|(?(cond)true|false)|	conditional branch (NOT SUPPORTED)||
+|(?(cond)true)|	conditional branch (NOT SUPPORTED)||
+|(*ACCEPT)|	make regexps more like Prolog (NOT SUPPORTED)||
+|(*COMMIT)|	(NOT SUPPORTED)||
+|(*F)|	(NOT SUPPORTED)||
+|(*FAIL)|	(NOT SUPPORTED)||
+|(*MARK)|	(NOT SUPPORTED)||
+|(*PRUNE)|	(NOT SUPPORTED)||
+|(*SKIP)|	(NOT SUPPORTED)||
+|(*THEN)|	(NOT SUPPORTED)||
+|(*ANY)|	set newline convention (NOT SUPPORTED)||
+|(*ANYCRLF)|	(NOT SUPPORTED)||
+|(*CR)|	(NOT SUPPORTED)||
+|(*CRLF)|	(NOT SUPPORTED)||
+|(*LF)|	(NOT SUPPORTED)||
+|(*BSR_ANYCRLF)|	set \R convention (NOT SUPPORTED) PCRE||
+|(*BSR_UNICODE)|	(NOT SUPPORTED) PCRE||
