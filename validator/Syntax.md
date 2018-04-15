@@ -39,62 +39,69 @@
 Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject forms that create a minimum or maximum repetition count above 1000. Unlimited repetitions are not subject to this restriction.  
 使用限制：计数形式x {n，m}，x {n，}和x {n}拒绝创建1000以上的最小或最大重复次数的表单。无限重复不受此限制。
 
-Possessive repetitions
-x*+	zero or more x, possessive (NOT SUPPORTED)
-x++	one or more x, possessive (NOT SUPPORTED)
-x?+	zero or one x, possessive (NOT SUPPORTED)
-x{n,m}+	n or ... or m x, possessive (NOT SUPPORTED)
-x{n,}+	n or more x, possessive (NOT SUPPORTED)
-x{n}+	exactly n x, possessive (NOT SUPPORTED)
-Grouping
-(re)	numbered capturing group (submatch)
-(?P<name>re)	named & numbered capturing group (submatch)
-(?<name>re)	named & numbered capturing group (submatch) (NOT SUPPORTED)
-(?'name're)	named & numbered capturing group (submatch) (NOT SUPPORTED)
-(?:re)	non-capturing group
-(?flags)	set flags within current group; non-capturing
-(?flags:re)	set flags during re; non-capturing
-(?#text)	comment (NOT SUPPORTED)
-(?|x|y|z)	branch numbering reset (NOT SUPPORTED)
-(?>re)	possessive match of re (NOT SUPPORTED)
-re@>	possessive match of re (NOT SUPPORTED) VIM
-%(re)	non-capturing group (NOT SUPPORTED) VIM
-Flags
-i	case-insensitive (default false)
-m	multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
-s	let . match \n (default false)
-U	ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
-Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z).
+|expression|Possessive repetitions|侵占重复型|
+|:-|:-|:-|
+|x*+|	zero or more x, possessive (NOT SUPPORTED)|匹配零个或多个 x,侵占(不支持)|
+|x++|	one or more x, possessive (NOT SUPPORTED)|匹配一个或多个 x,侵占(不支持)|
+|x?+|	zero or one x, possessive (NOT SUPPORTED)|匹配零个或一个 x,侵占(不支持)|
+|x{n,m}+|	n or ... or m x, possessive (NOT SUPPORTED)|匹配 n 到 m 个 x,侵占(不支持)|
+|x{n,}+|	n or more x, possessive (NOT SUPPORTED)|匹配 n 个或多个 x,侵占(不支持)|
+|x{n}+|	exactly n x, possessive (NOT SUPPORTED)|只匹配 n 个 x,侵占(不支持)|
 
-Empty strings
-^	at beginning of text or line (m=true)
-$	at end of text (like \z not \Z) or line (m=true)
-\A	at beginning of text
-\b	at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
-\B	not at ASCII word boundary
-\g	at beginning of subtext being searched (NOT SUPPORTED) PCRE
-\G	at end of last match (NOT SUPPORTED) PERL
-\Z	at end of text, or before newline at end of text (NOT SUPPORTED)
-\z	at end of text
-(?=re)	before text matching re (NOT SUPPORTED)
-(?!re)	before text not matching re (NOT SUPPORTED)
-(?<=re)	after text matching re (NOT SUPPORTED)
-(?<!re)	after text not matching re (NOT SUPPORTED)
-re&	before text matching re (NOT SUPPORTED) VIM
-re@=	before text matching re (NOT SUPPORTED) VIM
-re@!	before text not matching re (NOT SUPPORTED) VIM
-re@<=	after text matching re (NOT SUPPORTED) VIM
-re@<!	after text not matching re (NOT SUPPORTED) VIM
-\zs	sets start of match (= \K) (NOT SUPPORTED) VIM
-\ze	sets end of match (NOT SUPPORTED) VIM
-\%^	beginning of file (NOT SUPPORTED) VIM
-\%$	end of file (NOT SUPPORTED) VIM
-\%V	on screen (NOT SUPPORTED) VIM
-\%#	cursor position (NOT SUPPORTED) VIM
-\%'m	mark m position (NOT SUPPORTED) VIM
-\%23l	in line 23 (NOT SUPPORTED) VIM
-\%23c	in column 23 (NOT SUPPORTED) VIM
-\%23v	in virtual column 23 (NOT SUPPORTED) VIM
+|expression|Grouping|分组|
+|:-|:-|:-|
+|(re)|	numbered capturing group (submatch)|编号捕获组(子匹配)|
+|(?P<name>re)|	named & numbered capturing group (submatch)|命名和编号捕获组(子匹配)|
+|(?<name>re)|	named & numbered capturing group (submatch) (NOT SUPPORTED)|命名和编号捕获组(子匹配)(不支持)|
+|(?'name're)|	named & numbered capturing group (submatch) (NOT SUPPORTED)|命名和编号捕获组(子匹配)(不支持)|
+|(?:re)|	non-capturing group|非捕获组|
+|(?flags)|	set flags within current group; non-capturing|设置当前组内的标志;非捕获|
+|(?flags:re)|	set flags during re; non-capturing|在re期间设置标志;非捕获|
+|(?#text)|	comment (NOT SUPPORTED)|评论(不支持)|
+|(?|x|y|z)|	branch numbering reset (NOT SUPPORTED)|分支编号复位(不支持)|
+|(?>re)|	possessive match of re (NOT SUPPORTED)|所有格匹配(不支持)|
+|re@>|	possessive match of re (NOT SUPPORTED) VIM|所有格匹配(不支持)VIM|
+|%(re)|	non-capturing group (NOT SUPPORTED) VIM|非捕获组(不支持)VIM|
+
+|expression|Flags|标记|
+|:-|:-|:-|
+|i|	case-insensitive (default false)|不区分大小写(默认是false)|
+|m|	multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)|多行模式：让 ^ 和 $ 匹配整个文本的开头和结尾，而非行首和行尾(默认为 false)|
+|s|	let . match \n (default false)|让 . 匹配 \n (默认为 false)|
+|U|	ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)|非贪婪模式：交换 x* 和 x*? 等的含义 (默认为 false)|
+|Flag| syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z).||
+
+|expression|Empty strings|位置标记|
+|:-|:-|:-|
+|^|	at beginning of text or line (m=true)|如果标记 m=true 则匹配行首，否则匹配整个文本的开头（m 默认为 false）|
+|$|	at end of text (like \z not \Z) or line (m=true)|如果标记 m=true 则匹配行尾，否则匹配整个文本的结尾（m 默认为 false）|
+|\A|	at beginning of text|匹配整个文本的开头|
+|\b|	at ASCII word boundary (\w on one side and \W, \A, or \z on the other)|匹配ASCII边界（\ w在一边，\ W，\ A或\ z在另一边）|
+|\B|	not at ASCII word boundary|匹配非ASCII边界|
+|\g|	at beginning of subtext being searched (NOT SUPPORTED) PCRE|匹配搜索子文本的开头（不支持）PCRE时|
+|\G|	at end of last match (NOT SUPPORTED) PERL|在文本结尾的最后匹配|
+|\Z|	at end of text, or before newline at end of text (NOT SUPPORTED)|匹配整个文本的结尾，或在文本结尾的换行符之前|
+|\z|	at end of text|匹配整个文本的结尾，忽略 m 标记|
+|(?=re)|	before text matching re (NOT SUPPORTED)|在文本匹配之前(不支持)|
+|(?!re)|	before text not matching re (NOT SUPPORTED)|在文本不匹配之前(不支持)|
+|(?<=re)|	after text matching re (NOT SUPPORTED)|在文本匹配之后(不支持)|
+|(?<!re)|	after text not matching re (NOT SUPPORTED)|在文本不匹配之后(不支持)|
+|re&|	before text matching re (NOT SUPPORTED) VIM|在文本匹配之前(不支持)VIM|
+|re@=|	before text matching re (NOT SUPPORTED) VIM|在文本匹配之前(不支持)VIM|
+|re@!|	before text not matching re (NOT SUPPORTED) VIM|在文本不匹配之前(不支持)VIM|
+|re@<=|	after text matching re (NOT SUPPORTED) VIM|在文本匹配之后(不支持)VIM|
+|re@<!|	after text not matching re (NOT SUPPORTED) VIM|在文本不匹配之后(不支持)VIM|
+|\zs|	sets start of match (= \K) (NOT SUPPORTED) VIM|设置匹配开始(= \K)(不支持)VIM|
+|\ze|	sets end of match (NOT SUPPORTED) VIM|设置匹配结束(不支持)VIM|
+|\%^|	beginning of file (NOT SUPPORTED) VIM|文件开始(不支持)VIM|
+|\%$|	end of file (NOT SUPPORTED) VIM|文件结束(不支持)VIM|
+|\%V|	on screen (NOT SUPPORTED) VIM|在屏幕上(不支持)VIM|
+|\%#|	cursor position (NOT SUPPORTED) VIM|光标位置(不支持)VIM|
+|\%'m|	mark m position (NOT SUPPORTED) VIM|标记m的位置(不支持)VIM|
+|\%23l|	in line 23 (NOT SUPPORTED) VIM|在23行(不支持)VIM|
+|\%23c|	in column 23 (NOT SUPPORTED) VIM|在23栏(不支持)VIM|
+|\%23v|	in virtual column 23 (NOT SUPPORTED) VIM|在虚拟栏23(不支持)VIM|
+
 Escape sequences
 \a	bell (≡ \007)
 \f	form feed (≡ \014)
