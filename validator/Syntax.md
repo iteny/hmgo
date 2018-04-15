@@ -1,6 +1,6 @@
-|kinds of single-character expressions	|examples|
+|kinds of single-character expressions(单字符匹配)	|examples|
 |:-|:-|
-|any character, possibly including newline (s=true)	|.|
+|any character, possibly including newline (s=true)(匹配全部字符,当s=true时,可以匹配换行符)	|.|
 |character class|	[xyz]|
 |negated character class	|[^xyz]|
 |Perl character class (link)|	\d|
@@ -11,6 +11,7 @@
 |Unicode character class	|\p{Greek}|
 |negated Unicode character class (one-letter name)|	\PN|
 |negated Unicode character class	|\P{Greek}|
+
 Composites
 xy	x followed by y
 x|y	x or y (prefer x)
