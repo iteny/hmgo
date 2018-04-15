@@ -1,16 +1,16 @@
-|kinds of single-character expressions(单字符匹配)	|examples|
-|:-|:-|
-|any character, possibly including newline (s=true)(匹配全部字符,当s=true时,可以匹配换行符)	|.|
-|character class|	[xyz]|
-|negated character class	|[^xyz]|
-|Perl character class (link)|	\d|
-|negated Perl character class|	\D|
-|ASCII character class (link)|	[[:alpha:]]|
-|negated ASCII character class|	[[:^alpha:]]|
-|Unicode character class (one-letter name)|	\pN|
-|Unicode character class	|\p{Greek}|
-|negated Unicode character class (one-letter name)|	\PN|
-|negated Unicode character class	|\P{Greek}|
+|kinds of single-character expressions|单字符匹配	|examples|
+|:-|:-|:-|
+|any character, possibly including newline (s=true)|匹配全部字符,当s=true时,可以匹配换行符	|.|
+|character class|匹配"字符类"中的一个字符|	[xyz]|
+|negated character class|匹配"字符类"以外的一个字符	|[^xyz]|
+|Perl character class (link)|匹配"Perl字符类"中的一个字符|	\d|
+|negated Perl character class|匹配"Perl字符类"以外的一个字符|	\D|
+|ASCII character class (link)|匹配"ACSII字符类"中的一个字符|	[[:alpha:]]|
+|negated ASCII character class|匹配"ACSII字符类"以外的一个字符|	[[:^alpha:]]|
+|Unicode character class (one-letter name)|匹配"Unicode字符类"中的一个字符(仅一个字母)|	\pN|
+|Unicode character class	|匹配"Unicode字符类"中的一个字符|\p{Greek}|
+|negated Unicode character class (one-letter name)|匹配"Unicode字符类"以外的一个字符(仅一个字母)|	\PN|
+|negated Unicode character class	|匹配"Unicode字符类"以外的一个字符|\P{Greek}|
 
 Composites
 xy	x followed by y
