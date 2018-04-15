@@ -12,29 +12,32 @@
 |negated Unicode character class (one-letter name)|匹配"Unicode字符类"以外的一个字符(仅一个字母)|	\PN|
 |negated Unicode character class	|匹配"Unicode字符类"以外的一个字符|\P{Greek}|
 
-|Composites|||
+|expression|Composites|混合型|
 |:-|:-|:-|
 |xy|	x followed by y|匹配 xy（x 后面跟随 y）|
 |x|y|	x or y (prefer x)|匹配 x 或 y (优先匹配 x)|
 
-Repetitions
-x*	zero or more x, prefer more
-x+	one or more x, prefer more
-x?	zero or one x, prefer one
-x{n,m}	n or n+1 or ... or m x, prefer more
-x{n,}	n or more x, prefer more
-x{n}	exactly n x
-x*?	zero or more x, prefer fewer
-x+?	one or more x, prefer fewer
-x??	zero or one x, prefer zero
-x{n,m}?	n or n+1 or ... or m x, prefer fewer
-x{n,}?	n or more x, prefer fewer
-x{n}?	exactly n x
-x{}	(≡ x*) (NOT SUPPORTED) VIM
-x{-}	(≡ x*?) (NOT SUPPORTED) VIM
-x{-n}	(≡ x{n}?) (NOT SUPPORTED) VIM
-x=	(≡ x?) (NOT SUPPORTED) VIM
+|expression|Repetitions|重复型|
+|:-|:-|:-|
+|x*|	zero or more x, prefer more|匹配零个或多个 x，优先匹配更多(贪婪)|
+|x+|	one or more x, prefer more|匹配一个或多个 x，优先匹配更多(贪婪)|
+|x?|	zero or one x, prefer one|匹配零个或一个 x，优先匹配一个(贪婪)|
+|x{n,m}|	n or n+1 or ... or m x, prefer more|匹配 n 到 m 个 x，优先匹配更多(贪婪)|
+|x{n,}|	n or more x, prefer more|匹配 n 个或多个 x，优先匹配更多(贪婪)|
+|x{n}|	exactly n x|只匹配 n 个 x|
+|x*?|	zero or more x, prefer fewer|匹配零个或多个 x，优先匹配更少(非贪婪)|
+|x+?|	one or more x, prefer fewer|匹配一个或多个 x，优先匹配更少(非贪婪)|
+|x??|	zero or one x, prefer zero|匹配零个或一个 x，优先匹配零个(非贪婪)|
+|x{n,m}?|	n or n+1 or ... or m x, prefer fewer|匹配 n 到 m 个 x，优先匹配更少(非贪婪)|
+|x{n,}?|	n or more x, prefer fewer|匹配 n 个或多个 x，优先匹配更少(非贪婪)|
+|x{n}?|	exactly n x|只匹配 n 个 x|
+|x{}|	(≡ x*) (NOT SUPPORTED) VIM|不支持VIM|
+|x{-}|	(≡ x*?) (NOT SUPPORTED) VIM|不支持VIM|
+|x{-n}|	(≡ x{n}?) (NOT SUPPORTED) VIM|不支持VIM|
+|x=|	(≡ x?) (NOT SUPPORTED) VIM|不支持VIM|
+
 Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject forms that create a minimum or maximum repetition count above 1000. Unlimited repetitions are not subject to this restriction.
+使用限制：计数形式x {n，m}，x {n，}和x {n}拒绝创建1000以上的最小或最大重复次数的表单。无限重复不受此限制。
 
 Possessive repetitions
 x*+	zero or more x, possessive (NOT SUPPORTED)
