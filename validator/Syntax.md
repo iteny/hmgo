@@ -12,9 +12,11 @@
 |negated Unicode character class (one-letter name)|匹配"Unicode字符类"以外的一个字符(仅一个字母)|	\PN|
 |negated Unicode character class	|匹配"Unicode字符类"以外的一个字符|\P{Greek}|
 
-Composites
-xy	x followed by y
-x|y	x or y (prefer x)
+|Composites|||
+|:-|:-|:-|
+|xy|	x followed by y|匹配 xy（x 后面跟随 y）|
+|x|y|	x or y (prefer x)|匹配 x 或 y (优先匹配 x)|
+
 Repetitions
 x*	zero or more x, prefer more
 x+	one or more x, prefer more
