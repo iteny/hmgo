@@ -430,7 +430,7 @@ Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject fo
 |(?&name)|	recursive call to named group (NOT SUPPORTED)||
 |(?P=name)|	named backreference (NOT SUPPORTED)||
 |(?P>name)|	recursive call to named group (NOT SUPPORTED)||
-|(?(cond)true|false)|	conditional branch (NOT SUPPORTED)||
+|(?(cond)true丨false)|	conditional branch (NOT SUPPORTED)||
 |(?(cond)true)|	conditional branch (NOT SUPPORTED)||
 |(*ACCEPT)|	make regexps more like Prolog (NOT SUPPORTED)||
 |(*COMMIT)|	(NOT SUPPORTED)||
