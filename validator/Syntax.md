@@ -163,6 +163,7 @@ Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject fo
 |[\p{Name}]|	named Unicode property inside character class (≡ \p{Name})|命名的“Unicode 类”包含在“字符类”中 (相当于 \p{Name})|
 |[^\p{Name}]|	named Unicode property inside negated character class (≡ \P{Name})|命名的“Unicode 类”不包含在“字符类”中 (相当于 \P{Name})|
 
+
 |expression|Perl character classes (all ASCII-only)|Perl字符类（全部为ASCII码）|
 |\d|	digits (≡ [0-9])|匹配数字 (相当于 [0-9])|
 |\D|	not digits (≡ [^0-9])|匹配非数字 (相当于 [^0-9])|
