@@ -175,6 +175,7 @@ Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n} reject fo
 |\v|	vertical space (NOT SUPPORTED)|垂直空间(不支持)|
 |\V|	not vertical space (NOT SUPPORTED)|非垂直空间(不支持)|
 
+
 |expression|ASCII character classes|ASCII字符类|
 |:-|:-|:-|
 |[[:alnum:]]|	alphanumeric (≡ [0-9A-Za-z])|字母数字 (相当于 [0-9A-Za-z])|
