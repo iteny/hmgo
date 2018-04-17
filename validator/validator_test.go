@@ -268,6 +268,23 @@ func TestNumeric(t *testing.T) {
 		}
 	}
 }
+func TestNumericNoHeadZero(t *testing.T) {
+	t.Parallel()
+	var tests = []string{
+		"01",
+		"1000",
+		"0011",
+		"1100000",
+	}
+	for _, test := range tests {
+		result := NumericNoHeadZero(test)
+		if result {
+			t.Errorf("Execute NumericNoHeadZero(%c[1;0;34m%#v%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		} else {
+			t.Errorf("Execute NumericNoHeadZero(%c[1;0;34m%#v%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		}
+	}
+}
 func TestTime(t *testing.T) {
 	t.Parallel()
 	var tests = []struct {

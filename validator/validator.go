@@ -42,6 +42,15 @@ func Numeric(str string) bool {
 	return hmNumeric.MatchString(str)
 }
 
+// Numeric check if the string contains only numbers and not begin with zero. Empty string is invalid.
+// Numeric检查字符串是否只包含数字并且不以零开头。空字符串无效。
+func NumericNoHeadZero(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmNumericNoHeadZero.MatchString(str)
+}
+
 // English check if the string contains only letters (a-zA-Z). Empty string is invalid.
 // English检查如果字符串只包含字母（a-za-z）,空字符串无效
 func English(str string) bool {
