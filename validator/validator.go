@@ -60,6 +60,15 @@ func English(str string) bool {
 	return hmEnglish.MatchString(str)
 }
 
+// English check if the string contains only letters (a-zA-Z) and space. Empty string is invalid.
+// English检查如果字符串只包含字母（a-za-z）和空格,空字符串无效
+func EnglishSpace(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmEnglishSpace.MatchString(str)
+}
+
 // EnglishNumeric check if the string contains only letters and numbers. Empty string is invalid.
 // EnglishNumeric检查字符串是否只包含字母和数字。空字符串无效
 func EnglishNumeric(str string) bool {
@@ -69,8 +78,27 @@ func EnglishNumeric(str string) bool {
 	return hmEnglishNumeric.MatchString(str)
 }
 
-// IsTime check if string is valid according to given format
+// Time check whether the string is a time format
+// Time检查字符串是否是时间格式
 func Time(str string, format string) bool {
 	_, err := time.Parse(format, str)
 	return err == nil
+}
+
+// Chinese check if string is valid chinese.
+// Chinese检查字符串是否是中文
+func Chinese(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmChinese.MatchString(str)
+}
+
+// Article checks whether the string is Chinese, English, punctuation marks.
+// Article检查字符串是否是中文，英文，标点符号
+func Article(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmArticle.MatchString(str)
 }

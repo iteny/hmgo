@@ -156,6 +156,62 @@ func TestEnglish(t *testing.T) {
 		}
 	}
 }
+func TestEnglishSpace(t *testing.T) {
+	t.Parallel()
+	var tests = []string{
+		"\n",
+		"\r",
+		"Ⅸ",
+		"",
+		"   fooo   ",
+		"abc!!!",
+		"abc1",
+		"abc〩",
+		"abc",
+		"소주",
+		"ABC",
+		"FoObAr",
+		"소aBC",
+		"소",
+		"달기&Co.",
+		"〩Hours",
+		"\ufff0",
+		"\u0070", //UTF-8(ASCII): p
+		"\u0026", //UTF-8(ASCII): &
+		"\u0030", //UTF-8(ASCII): 0
+		"123",
+		"0123",
+		"-00123",
+		"0",
+		"-0",
+		"123.123",
+		" ",
+		".",
+		"-1¾",
+		"1¾",
+		"〥〩",
+		"모자",
+		"ix",
+		"۳۵۶۰",
+		"1--",
+		"1-1",
+		"-",
+		"--",
+		"1++",
+		"1+1",
+		"+",
+		"++",
+		"+1",
+	}
+	for _, test := range tests {
+		result := EnglishSpace(test)
+		if result {
+			t.Errorf("Execute EnglishSpace(%c[1;0;34m%#v%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		} else {
+			t.Errorf("Execute EnglishSpace(%c[1;0;34m%#v%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		}
+	}
+}
 func TestEnglishNumeric(t *testing.T) {
 	t.Parallel()
 	var tests = []string{
@@ -315,6 +371,62 @@ func TestTime(t *testing.T) {
 			t.Errorf("Execute Time(%c[1;0;34m%q,format=%#v%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test.param, test.format, 0x1B, 0x1B, result, 0x1B)
 		} else {
 			t.Errorf("Execute Time(%c[1;0;34m%q,format=%#v%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test.param, test.format, 0x1B, 0x1B, result, 0x1B)
+		}
+	}
+}
+func TestChinese(t *testing.T) {
+	t.Parallel()
+	var tests = []string{
+		"",
+		"坑人发过",
+		"asdfas阿士大夫撒旦",
+		"撒地方asdfas_",
+		"萨达sfasdf2341_",
+		"sagad阿斯顿发送到 ",
+		"asdfasd|",
+		"asdf阿斯顿发生3425-",
+		"撒打算sdf8345\\",
+		"阿斯顿234/",
+		"adsfasdf",
+		"2341423",
+		"……撒地方",
+		"**dsafva萨达_()",
+		"1",
+	}
+	for _, test := range tests {
+		result := Chinese(test)
+		if result {
+			t.Errorf("Execute Chinese(%c[1;0;34m%q%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		} else {
+			t.Errorf("Execute Chinese(%c[1;0;34m%q%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		}
+	}
+}
+func TestArticle(t *testing.T) {
+	t.Parallel()
+	var tests = []string{
+		"",
+		"坑人发过",
+		"asdfas阿士大夫撒旦",
+		"撒地方asdfas_",
+		"萨达sfasdf2341_",
+		"sagad阿斯顿发送到 ",
+		"asdfasd|",
+		"asdf阿斯顿发生3425-",
+		"撒打算sdf8345\\",
+		"阿斯顿234/",
+		"adsfasdf",
+		"2341423",
+		"……撒地方",
+		"**dsafva萨达_()",
+		"1",
+	}
+	for _, test := range tests {
+		result := Article(test)
+		if result {
+			t.Errorf("Execute Article(%c[1;0;34m%q%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		} else {
+			t.Errorf("Execute Article(%c[1;0;34m%q%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
 		}
 	}
 }
