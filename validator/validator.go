@@ -1,12 +1,27 @@
 package validator
 
 import (
+	"regexp"
 	"strings"
 	"time"
 )
 
 const RF3339Js = "2006-01-02 15:04:05"
 const RF3339T = "2006-01-02T15:04:05"
+
+func MultiLanguage(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmMultiLanguage.MatchString(str)
+}
+
+// Custom regular validation
+// 自定义正则验证
+func Reg(str, regRule string) bool {
+	r := regexp.MustCompile(regRule)
+	return r.MatchString(str)
+}
 
 // Email check if the string is an email.
 // 检查字符串是否是电子邮件

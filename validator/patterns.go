@@ -14,6 +14,7 @@ const (
 	numericNoHeadZero string = `^[1-9][0-9]*$`
 	chinese           string = `^[\x{4e00}-\x{9fa5}]+$`
 	article           string = `^[\x{4e00}-\x{9fa5}A-Za-z0-9-_,.!，。！ ]+$`
+	multiLanguage     string = `cn|en`
 	// ISBN10         string = "^(?:[0-9]{9}X|[0-9]{10})$"
 	// ISBN13         string = "^(?:[0-9]{13})$"
 	// UUID3          string = "^[0-9a-f]{8}-[0-9a-f]{4}-3[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}$"
@@ -68,6 +69,7 @@ var (
 	hmNumericNoHeadZero = regexp.MustCompile(numericNoHeadZero)
 	hmChinese           = regexp.MustCompile(chinese)
 	hmArticle           = regexp.MustCompile(article)
+	hmMultiLanguage     = regexp.MustCompile(multiLanguage)
 	// hmISBN10         = regexp.MustCompile(ISBN10)
 	// hmISBN13         = regexp.MustCompile(ISBN13)
 	// hmUUID3          = regexp.MustCompile(UUID3)
