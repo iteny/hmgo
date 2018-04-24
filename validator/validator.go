@@ -15,6 +15,25 @@ func MultiLanguage(str string) bool {
 	}
 	return hmMultiLanguage.MatchString(str)
 }
+func EqualTo(strone, strtwo string) bool {
+	if Null(strone) {
+		return false
+	}
+	if Null(strtwo) {
+		return false
+	}
+	return strone == strtwo
+}
+func Status(str string) bool {
+	switch str {
+	case "1":
+		return true
+	case "0":
+		return true
+	default:
+		return false
+	}
+}
 
 // Custom regular validation
 // 自定义正则验证
