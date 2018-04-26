@@ -430,3 +430,20 @@ func TestArticle(t *testing.T) {
 		}
 	}
 }
+func TestIconCss(t *testing.T) {
+	t.Parallel()
+	var tests = []string{
+		"asdfa-sdf",
+		"fa fa-remove",
+		"fa fa_remove",
+		"",
+	}
+	for _, test := range tests {
+		result := IconCss(test)
+		if result {
+			t.Errorf("Execute Email(%c[1;0;34m%q%c[0m) => %c[1;0;32m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		} else {
+			t.Errorf("Execute Email(%c[1;0;34m%q%c[0m) => %c[1;0;31m%v%c[0m ", 0x1B, test, 0x1B, 0x1B, result, 0x1B)
+		}
+	}
+}

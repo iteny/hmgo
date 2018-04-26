@@ -42,6 +42,24 @@ func Reg(str, regRule string) bool {
 	return r.MatchString(str)
 }
 
+// IconCss check if the string is an A~Z,a~z,0~9,-,_,space.
+// IconCss检查字符串是否是A~Z,a~z,0~9,-,_,空格.
+func IconCss(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmIconCss.MatchString(str)
+}
+
+// MenuUrl check if the string is an A~Z,a~z,0~9,/
+// MenuUrl检查字符串是否是A~Z,a~z,0~9,/
+func MenuUrl(str string) bool {
+	if Null(str) {
+		return false
+	}
+	return hmMenuUrl.MatchString(str)
+}
+
 // Email check if the string is an email.
 // 检查字符串是否是电子邮件
 func Email(str string) bool {
