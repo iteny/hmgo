@@ -1,4 +1,4 @@
-[中文手册](https://github.com/iteny/hmgo/blob/master/README.CN.md)
+[English Manual](https://github.com/iteny/hmgo/blob/master/README.md)
 
 ###color.go 简介
 
