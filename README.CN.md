@@ -2,4 +2,4 @@
 
 ### color.go 简介
 
-![image](https://github.com/iteny/hmgo/blob/master/images/color_english.png)
+![image](https://github.com/iteny/hmgo/blob/master/images/color_chinese.png)
